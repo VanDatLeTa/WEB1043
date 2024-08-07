@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .gold{
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="star">
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        
+    </div>
+    <p class="output"></p>
+    <script>
+        var stars = document.querySelectorAll('.fa-star');
+        console.log(stars);
+        var output = document.querySelector('.output');
+        stars.forEach((star,i)=>{
+            star.onclick = function(){
+                var cur_star = (i+1);
+                output.innerText = `Bạn đã đánh giá ${cur_star} sao`;
+
+             stars.forEach((star,j)=>{
+                if(cur_star>= j+1){
+                    star.classList.add('gold')
+                }else{
+                    star.classList.remove('gold')
+                }
+            })    
+            }  
+        })
+    </script>
+</body>
+</html>

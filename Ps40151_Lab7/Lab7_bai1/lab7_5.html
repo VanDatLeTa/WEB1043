@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Đặt hàng</h1>
+    <form onsubmit="return checkForm()">
+        <p>
+            <label for="">Sản phẩm</label>
+            <input type="text" id = 'ten_sp'>
+        </p>
+        <p>
+            <label for="">Loại</label>
+            <select name="" id="loai_sp">
+                <option value="Điện thoại">Điện thoại</option>
+                <option value="Máy tính">Máy tính</option>
+                <option value="Phụ kiện">Phụ kiện</option>
+            </select>
+        </p>
+        <p>
+            <label for="">Đơn giá</label>
+            <input type="text" id="gia_sp">
+        </p>
+        <p>
+            <label for="">Nơi Nhận hàng</label>
+            <input type="radio" name = "radio" onclick="hienThi(true)" ><label for="">Nội thành</label>
+            <input type="radio" name = "radio" onclick="hienThi(false)" ><label for="">Ngoại thành</label>
+        </p>
+        <input type="text" value ="1000000" readonly id ="ship" style="display: none;">
+        <hr>
+        <input type="submit" name ="" value="Đặt mua">
+    </form>
+    <script>
+        function hienThi(x){
+            var radios = document.getElementById('ship');
+            ship.style.display = x ? "none" : ""
+        }
+        function checkForm(){
+            event.preventDefault();
+            var ten_sp = document.getElementById('ten_sp').value;
+            var loai_sp = document.getElementById('loai_sp').value;
+            var gia_sp = document.getElementById('gia_sp').value;
+            if(ten_sp.length == 0){
+                alert('Vui lòng nhập vào tên Sản phẩm');
+                return false;
+            }
+            if(loai_sp.length ==0){
+                    alert('Vui lòng chọn loại sản phẩm');
+                return false;
+            }
+            if(gia_sp.length == 0){
+                alert("Vui lòng nhập giá sản phẩm");
+                return false;
+            }else if(gia_sp <= 0){
+                alert("Giá sản phải phải là số dương");
+                return false;
+            }else if(isNaN(gia_sp)== true){
+                alert('Vui lòn nhập giá sản phẩm là số');
+                return false;
+            }
+
+            var radios = document.getElementsByName('radio');
+            if(!radios[0].checked && !radios[1].checked){
+                alert('Vui lòng chọn nơi nhận hàng');
+                return false;
+            }
+            alert('Bạn đã đặt hàng thành công');
+            return true;
+
+
+        }
+    </script>
+</body>
+</html>

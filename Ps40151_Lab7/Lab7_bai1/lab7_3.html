@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 72</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="text"], .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="myForm" action="anotherpage.html" method="get" onsubmit="return validateForm()">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname">
+            
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname">
+            
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age">
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div id="error-message" class="error"></div>
+    </div>
+    <script>
+        function validateForm() {
+            var fname = document.getElementById("fname").value;
+            if (fname === "") {
+                document.getElementById("error-message").innerText = "Need a first name!!";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

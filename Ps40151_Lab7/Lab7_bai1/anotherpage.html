@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submitted Data</h1>
+    <ul id="dataList"></ul>
+    <script>
+        let q = window.location.search;
+        let params = new URLSearchParams(q);
+        let list = document.getElementById("dataList");
+        
+        for (let p of params) {
+            let listItem = document.createElement("li");
+            listItem.textContent = p[0] + ": " + p[1];
+            list.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating Element</title>
+    <style>
+        #animate {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="startAnimation()">Start Animation</button>
+    <div id="animate"></div>
+
+    <script>
+        function startAnimation() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            var id = setInterval(frame, 2);
+
+            function frame() {
+                if (pos == 600) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
